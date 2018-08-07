@@ -4,6 +4,10 @@ public class RuleBuilder {
     private int lowerAgeBoundry;
     private int upperAgeBoundry;
 
+    public static RuleBuilder create() {
+        return new RuleBuilder();
+    }
+
     public RuleBuilder withAgeBetween(int lowerAgeBoundry) {
         this.lowerAgeBoundry = lowerAgeBoundry;
         return this;

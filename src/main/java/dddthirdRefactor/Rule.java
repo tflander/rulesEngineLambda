@@ -13,7 +13,4 @@ public class Rule {
         this.result = result;
     }
 
-    public static RuleBuilder create() {
-        return new RuleBuilder();
-    }
 }
