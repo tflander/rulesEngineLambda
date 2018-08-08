@@ -8,15 +8,16 @@ import java.util.function.Predicate;
 
 public class BusinessLogic {
 
-    ProcessorFunctions functions = new ProcessorFunctions();
+    private ProcessorFunctions functions = new ProcessorFunctions();
 
     public FirstMatchingRuleDataFlow<Data, String> getFlow() {
 
         return FirstMatchingRuleDataFlowBuilder.create()
-                .addingCondition(isBaby).toRun(functions.processDataForBaby)
-                .addingCondition(isToddler).toRun(functions.processDataForToddler)
-                .addingCondition(isHuman).toRun(functions.processDataForHuman)
+                .addingCondition(isBaby).toRun(data -> functions.processDataForBaby((Data)data))
+                .addingCondition(isToddler).toRun(data -> functions.processDataForToddler((Data)data))
+                .addingCondition(isHuman).toRun(data -> functions.processDataForHuman((Data)data))
                 .build();
+
     }
 
     private static Predicate<Data> isAgeInRange(int lower, int upper) {

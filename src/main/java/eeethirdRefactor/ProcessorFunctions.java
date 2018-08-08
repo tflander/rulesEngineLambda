@@ -6,17 +6,17 @@ import java.util.function.Function;
 
 public class ProcessorFunctions {
 
-    public Function<Data, String> processDataForBaby = data -> {
+    public String processDataForBaby(Data data) {
         System.out.println("Processing data for baby...");
         return "Baby";
     };
 
-    public Function<Data, String> processDataForToddler = data -> {
+    public String processDataForToddler(Data data) {
         System.out.println("Processing data for toddler...");
         return "Toddler";
     };
 
-    public Function<Data, String> processDataForHuman = data ->  {
+    public String processDataForHuman(Data data)  {
         System.out.println("Processing data for human...");
         return "Human";
     };
