@@ -1,4 +1,4 @@
-package bbbObjectWay;
+package model;
 
 public class Data {
     private final String name;

@@ -1,5 +1,7 @@
 package cccFirstRefactor;
 
+import model.Data;
+
 import java.util.ArrayList;
 import java.util.List;
 

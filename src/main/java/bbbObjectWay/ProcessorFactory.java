@@ -1,5 +1,7 @@
 package bbbObjectWay;
 
+import model.Data;
+
 public class ProcessorFactory {
     public Processor processorFor(Data data) {
 

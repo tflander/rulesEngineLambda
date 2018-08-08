@@ -1,5 +1,7 @@
 package eeethirdRefactor;
 
+import model.Data;
+
 public class ProcessorFunctions {
 
     public static String processDataForBaby(Data data) {

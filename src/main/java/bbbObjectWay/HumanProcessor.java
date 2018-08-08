@@ -1,5 +1,7 @@
 package bbbObjectWay;
 
+import model.Data;
+
 public class HumanProcessor implements Processor {
     @Override
     public String execute(Data data) {

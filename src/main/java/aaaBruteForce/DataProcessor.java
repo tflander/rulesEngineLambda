@@ -1,5 +1,7 @@
 package aaaBruteForce;
 
+import model.Data;
+
 public class DataProcessor {
     public String process(Data data) {
 

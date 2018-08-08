@@ -1,5 +1,7 @@
 package cccFirstRefactor;
 
+import model.Data;
+
 import java.util.function.Predicate;
 
 public class BabyProcessor implements Processor {

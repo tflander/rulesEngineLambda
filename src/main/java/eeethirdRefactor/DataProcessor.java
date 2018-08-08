@@ -1,6 +1,7 @@
 package eeethirdRefactor;
 
-import java.util.ArrayList;
+import model.Data;
+
 import java.util.List;
 
 public class DataProcessor {
