@@ -3,14 +3,14 @@ package dddSecondRefactor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RulesEngine {
+public class DataProcessor {
 
     final private static List<Rule> rules = new ArrayList<>();
 
     static {
-        rules.add(new Rule(data -> data.getAge() <= 2, RulesEngine::processDataForBaby));
-        rules.add(new Rule(data -> 3 <= data.getAge() && data.getAge() <= 5, RulesEngine::processDataForToddler));
-        rules.add(new Rule(data -> data.getAge() >= 6, RulesEngine::processDataForHuman));
+        rules.add(new Rule(data -> data.getAge() <= 2, DataProcessor::processDataForBaby));
+        rules.add(new Rule(data -> 3 <= data.getAge() && data.getAge() <= 5, DataProcessor::processDataForToddler));
+        rules.add(new Rule(data -> data.getAge() >= 6, DataProcessor::processDataForHuman));
     }
 
     public String resultFor(Data data) {
