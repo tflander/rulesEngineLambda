@@ -4,19 +4,25 @@ import model.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.BiPredicate;
+import java.util.function.Predicate;
 
 public class BusinessLogic {
 
-    public List<Rule<String>> getRules() {
-        ArrayList<Rule<String>> rules = new ArrayList<>();
-        rules.add(new Rule<>(data -> isAgeInRange(data, 0, 2), ProcessorFunctions::processDataForBaby));
-        rules.add(new Rule<>(data -> isAgeInRange(data, 3, 5), ProcessorFunctions::processDataForToddler));
-        rules.add(new Rule<>(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), ProcessorFunctions::processDataForHuman));
-        return rules;
+    public List<ConditionalExecutor<Data, String>> getRules() {
+        ArrayList<ConditionalExecutor<Data, String>> conditionalExecutors = new ArrayList<>();
+        conditionalExecutors.add(new ConditionalExecutor<>(isBaby, ProcessorFunctions::processDataForBaby));
+        conditionalExecutors.add(new ConditionalExecutor<>(isToddler, ProcessorFunctions::processDataForToddler));
+        conditionalExecutors.add(new ConditionalExecutor<>(isHuman, ProcessorFunctions::processDataForHuman));
+        return conditionalExecutors;
     }
 
-    private static boolean isAgeInRange(Data data, int lower, int upper) {
-        return lower <= data.getAge() && data.getAge() <= upper;
-    }
+    private static BiPredicate<Data, Boundary> isAgeInRange = (data, boundary) -> {
+        System.out.println("Testing boundry " + boundary);
+        return data.getAge() >= boundary.lowerBounds && data.getAge() <= boundary.upperBounds;
+    };
+    private static Predicate<Data> isBaby = data -> isAgeInRange.test(data, new Boundary(0,2));
+    private static Predicate<Data> isToddler = data -> isAgeInRange.test(data, new Boundary(3,5));
+    private static Predicate<Data> isHuman = data -> isAgeInRange.test(data, new Boundary(6,Integer.MAX_VALUE));
 
 }

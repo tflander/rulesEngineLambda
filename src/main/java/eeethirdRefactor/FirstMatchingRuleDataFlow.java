@@ -1,24 +1,22 @@
 package eeethirdRefactor;
 
-import model.Data;
-
 import java.util.List;
 
-public class FirstMatchingRuleDataFlow<T> {
+public class FirstMatchingRuleDataFlow<T, R> {
 
-    private final List<Rule<T>> rules;
+    private final List<ConditionalExecutor<T, R>> conditionalExecutors;
 
-    public FirstMatchingRuleDataFlow(List<Rule<T>> rules) {
-        this.rules = rules;
+    public FirstMatchingRuleDataFlow(List<ConditionalExecutor<T, R>> conditionalExecutors) {
+        this.conditionalExecutors = conditionalExecutors;
     }
 
-    public T executeAndReturnResult(Data data) {
+    public R executeAndReturnResult(T data) {
 
-        Rule<T> ruleForData = rules.stream()
-                .filter(rule -> rule.testPredicate.test(data))
+        ConditionalExecutor<T, R> conditionalExecutorForData = conditionalExecutors.stream()
+                .filter(conditionalExecutor -> conditionalExecutor.conditionToExecute.test(data))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data));
 
-        return ruleForData.execute.apply(data);
+        return conditionalExecutorForData.execute.apply(data);
     }
 }
