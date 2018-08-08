@@ -18,7 +18,7 @@ public class RulesEngine {
         return rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))
                 .findFirst()
-                .orElseThrow(RuntimeException::new)
+                .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data))
                 .execute.apply(data);
     }
 

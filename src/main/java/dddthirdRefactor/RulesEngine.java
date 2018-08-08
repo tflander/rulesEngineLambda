@@ -15,11 +15,12 @@ public class RulesEngine {
 
     public String resultFor(Data data) {
 
-        return rules.stream()
+        Rule ruleForData = rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))
                 .findFirst()
-                .orElseThrow(RuntimeException::new)
-                .execute.apply(data);
+                .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data));
+
+        return ruleForData.execute.apply(data);
     }
 
 
