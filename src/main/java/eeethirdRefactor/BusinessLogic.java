@@ -6,9 +6,13 @@ import model.Data;
 
 import java.util.function.Predicate;
 
+@SuppressWarnings("unchecked")
 public class BusinessLogic {
 
-    private ProcessorFunctions functions = new ProcessorFunctions();
+    private final ProcessorFunctions functions = new ProcessorFunctions();
+    private final Predicate<Data> isBaby = isAgeInRange(0, 2);
+    private final Predicate<Data> isToddler = isAgeInRange(3, 5);
+    private final Predicate<Data> isHuman = isAgeInRange(6, Integer.MAX_VALUE);
 
     public FirstMatchingRuleDataFlow<Data, String> getFlow() {
 
@@ -20,11 +24,8 @@ public class BusinessLogic {
 
     }
 
-    private static Predicate<Data> isAgeInRange(int lower, int upper) {
+    private Predicate<Data> isAgeInRange(int lower, int upper) {
         return (data -> lower <= data.getAge() && data.getAge() <= upper);
     }
 
-    private static Predicate<Data> isBaby = isAgeInRange(0, 2);
-    private static Predicate<Data> isToddler = isAgeInRange(3, 5);
-    private static Predicate<Data> isHuman = isAgeInRange(6, Integer.MAX_VALUE);
 }
