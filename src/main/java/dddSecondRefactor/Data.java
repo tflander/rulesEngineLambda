@@ -1,4 +1,4 @@
-package cccSecondRefactor;
+package dddSecondRefactor;
 
 public class Data {
     private final String name;

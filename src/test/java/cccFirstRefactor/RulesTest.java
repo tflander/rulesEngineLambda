@@ -1,4 +1,4 @@
-package bbbFirstRefactor;
+package cccFirstRefactor;
 
 import org.junit.Test;
 

@@ -1,4 +1,4 @@
-package dddthirdRefactor;
+package dddSecondRefactor;
 
 import org.junit.Test;
 

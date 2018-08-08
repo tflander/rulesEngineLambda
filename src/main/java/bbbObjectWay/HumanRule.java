@@ -1,4 +1,4 @@
-package aaaObjectWay;
+package bbbObjectWay;
 
 public class HumanRule implements Rule {
     @Override

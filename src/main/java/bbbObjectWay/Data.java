@@ -1,4 +1,4 @@
-package aaaObjectWay;
+package bbbObjectWay;
 
 public class Data {
     private final String name;

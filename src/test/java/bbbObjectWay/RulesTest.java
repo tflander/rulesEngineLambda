@@ -1,4 +1,4 @@
-package aaaObjectWay;
+package bbbObjectWay;
 
 import org.junit.Test;
 

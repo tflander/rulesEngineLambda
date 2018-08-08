@@ -1,4 +1,4 @@
-package aaaObjectWay;
+package bbbObjectWay;
 
 public class RulesEngine {
     public Rule ruleFor(Data data) {

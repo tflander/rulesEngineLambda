@@ -1,4 +1,4 @@
-package cccSecondRefactor;
+package eeethirdRefactor;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,19 +8,21 @@ public class RulesEngine {
     final private static List<Rule> rules = new ArrayList<>();
 
     static {
-        rules.add(new Rule(data -> data.getAge() <= 2, RulesEngine::processDataForBaby));
-        rules.add(new Rule(data -> 3 <= data.getAge() && data.getAge() <= 5, RulesEngine::processDataForToddler));
-        rules.add(new Rule(data -> data.getAge() >= 6, RulesEngine::processDataForHuman));
+        rules.add(new Rule(data -> isAgeInRange(data, 0, 2), RulesEngine::processDataForBaby));
+        rules.add(new Rule(data -> isAgeInRange(data, 3, 5), RulesEngine::processDataForToddler));
+        rules.add(new Rule(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), RulesEngine::processDataForHuman));
     }
 
     public String resultFor(Data data) {
 
-        return rules.stream()
+        Rule ruleForData = rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))
                 .findFirst()
-                .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data))
-                .execute.apply(data);
+                .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data));
+
+        return ruleForData.execute.apply(data);
     }
+
 
     private static String processDataForBaby(Data data) {
         System.out.println("Processing data for baby...");
@@ -37,4 +39,7 @@ public class RulesEngine {
         return "Human";
     }
 
+    private static boolean isAgeInRange(Data data, int lower, int upper) {
+        return lower <= data.getAge() && data.getAge() <= upper;
+    }
 }

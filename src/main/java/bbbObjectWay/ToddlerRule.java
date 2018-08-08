@@ -1,4 +1,4 @@
-package aaaObjectWay;
+package bbbObjectWay;
 
 public class ToddlerRule implements Rule {
     @Override
