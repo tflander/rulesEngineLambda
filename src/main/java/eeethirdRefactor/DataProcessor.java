@@ -3,14 +3,14 @@ package eeethirdRefactor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class RulesEngine {
+public class DataProcessor {
 
     final private static List<Rule> rules = new ArrayList<>();
 
     static {
-        rules.add(new Rule(data -> isAgeInRange(data, 0, 2), RulesEngine::processDataForBaby));
-        rules.add(new Rule(data -> isAgeInRange(data, 3, 5), RulesEngine::processDataForToddler));
-        rules.add(new Rule(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), RulesEngine::processDataForHuman));
+        rules.add(new Rule(data -> isAgeInRange(data, 0, 2), DataProcessor::processDataForBaby));
+        rules.add(new Rule(data -> isAgeInRange(data, 3, 5), DataProcessor::processDataForToddler));
+        rules.add(new Rule(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), DataProcessor::processDataForHuman));
     }
 
     public String resultFor(Data data) {
