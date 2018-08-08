@@ -2,9 +2,9 @@ package cccFirstRefactor;
 
 import java.util.function.Predicate;
 
-public interface Rule {
+public interface Processor {
 
     Predicate<Data> testPredicate();
 
-    String apply(Data data);
+    String execute(Data data);
 }

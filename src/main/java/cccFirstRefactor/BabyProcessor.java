@@ -2,7 +2,7 @@ package cccFirstRefactor;
 
 import java.util.function.Predicate;
 
-public class BabyRule implements Rule {
+public class BabyProcessor implements Processor {
 
     @Override
     public Predicate<Data> testPredicate() {
@@ -11,7 +11,7 @@ public class BabyRule implements Rule {
     }
 
     @Override
-    public String apply(Data data) {
+    public String execute(Data data) {
         return "Baby";
     }
 }

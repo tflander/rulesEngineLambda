@@ -2,7 +2,7 @@ package cccFirstRefactor;
 
 import java.util.function.Predicate;
 
-public class HumanRule implements Rule {
+public class HumanProcessor implements Processor {
 
     @Override
     public Predicate<Data> testPredicate() {
@@ -11,8 +11,8 @@ public class HumanRule implements Rule {
     }
 
     @Override
-    public String apply(Data data) {
-        System.out.println("Processing data using HumanRule...");
+    public String execute(Data data) {
+        System.out.println("Processing data using HumanProcessor...");
         return "Human";
     }
 }
