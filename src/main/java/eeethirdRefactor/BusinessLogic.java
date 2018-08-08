@@ -4,7 +4,6 @@ import eeethirdRefactor.executionFlow.FirstMatchingRuleDataFlow;
 import eeethirdRefactor.executionFlow.FirstMatchingRuleDataFlowBuilder;
 import model.Data;
 
-import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class BusinessLogic {
@@ -20,32 +19,11 @@ public class BusinessLogic {
                 .build();
     }
 
-    private static BiPredicate<Data, Boundary> isAgeInRange = (data, boundary) -> {
-        System.out.println("Testing boundry " + boundary);
-        return data.getAge() >= boundary.lowerBounds && data.getAge() <= boundary.upperBounds;
-    };
-
-    private static Predicate<Data> isBaby = data -> isAgeInRange.test(data, new Boundary(0, 2));
-    private static Predicate<Data> isToddler = data -> isAgeInRange.test(data, new Boundary(3, 5));
-    private static Predicate<Data> isHuman = data -> isAgeInRange.test(data, new Boundary(6, Integer.MAX_VALUE));
-
-}
-
-class Boundary {
-    public final Integer lowerBounds;
-    public final Integer upperBounds;
-
-    public Boundary(final Integer lowerBounds, Integer upperBounds) {
-        this.lowerBounds = lowerBounds;
-        this.upperBounds = upperBounds;
+    private static Predicate<Data> isAgeInRange(int lower, int upper) {
+        return (data -> lower <= data.getAge() && data.getAge() <= upper);
     }
 
-    @Override
-    public String toString() {
-        return "Boundary{" +
-                "lowerBounds=" + lowerBounds +
-                ", upperBounds=" + upperBounds +
-                '}';
-    }
-
+    private static Predicate<Data> isBaby = isAgeInRange(0, 2);
+    private static Predicate<Data> isToddler = isAgeInRange(3, 5);
+    private static Predicate<Data> isHuman = isAgeInRange(6, Integer.MAX_VALUE);
 }
