@@ -13,7 +13,7 @@ public class DataProcessor {
         rules.add(new Rule(data -> data.getAge() >= 6, DataProcessor::processDataForHuman));
     }
 
-    public String resultFor(Data data) {
+    public String executeAndReturnResult(Data data) {
 
         return rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))

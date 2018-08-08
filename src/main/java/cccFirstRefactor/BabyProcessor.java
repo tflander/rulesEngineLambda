@@ -11,7 +11,7 @@ public class BabyProcessor implements Processor {
     }
 
     @Override
-    public String execute(Data data) {
+    public String executeAndReturnResult(Data data) {
         return "Baby";
     }
 }

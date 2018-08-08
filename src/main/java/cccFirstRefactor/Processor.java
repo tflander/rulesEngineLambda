@@ -6,5 +6,5 @@ public interface Processor {
 
     Predicate<Data> testPredicate();
 
-    String execute(Data data);
+    String executeAndReturnResult(Data data);
 }

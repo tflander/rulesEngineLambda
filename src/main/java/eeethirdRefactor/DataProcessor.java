@@ -13,7 +13,7 @@ public class DataProcessor {
         rules.add(new Rule(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), DataProcessor::processDataForHuman));
     }
 
-    public String resultFor(Data data) {
+    public String executeAndReturnResult(Data data) {
 
         Rule ruleForData = rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))

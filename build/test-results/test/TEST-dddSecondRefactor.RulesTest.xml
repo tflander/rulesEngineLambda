@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="dddSecondRefactor.RulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-08-08T01:16:59" hostname="Todds-MacBook-Pro.local" time="0.002">
+<testsuite name="dddSecondRefactor.RulesTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2018-08-08T01:33:19" hostname="Todds-MacBook-Pro.local" time="0.003">
   <properties/>
-  <testcase name="olderPeopleAreHumanToo" classname="dddSecondRefactor.RulesTest" time="0.0"/>
-  <testcase name="toddlerIsThreeToFiveLowerBoundTest" classname="dddSecondRefactor.RulesTest" time="0.0"/>
+  <testcase name="olderPeopleAreHumanToo" classname="dddSecondRefactor.RulesTest" time="0.001"/>
+  <testcase name="toddlerIsThreeToFiveLowerBoundTest" classname="dddSecondRefactor.RulesTest" time="0.001"/>
   <testcase name="olderThanFiveIsHumanLowerBound" classname="dddSecondRefactor.RulesTest" time="0.0"/>
   <testcase name="babyIsTwoOrYounger" classname="dddSecondRefactor.RulesTest" time="0.0"/>
-  <testcase name="newbornIsABaby" classname="dddSecondRefactor.RulesTest" time="0.001"/>
+  <testcase name="newbornIsABaby" classname="dddSecondRefactor.RulesTest" time="0.0"/>
   <testcase name="toddlerIsThreeToFiveUpperBoundTest" classname="dddSecondRefactor.RulesTest" time="0.0"/>
   <system-out><![CDATA[Processing data for human...
 Processing data for toddler...
