@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.stream.DoubleStream;
 
-public class FirstMatchingRuleDataFlowBuilder<T,R> {
+public class FirstMatchingRuleDataFlowBuilder<T, R> {
 
     private Predicate<T> testifShouldProcess;
-    private List<ConditionalExecutor<T,R>> conditionalExecutors = new ArrayList<>();
+    private List<ConditionalExecutor<T, R>> conditionalExecutors = new ArrayList<>();
 
     public static FirstMatchingRuleDataFlowBuilder create() {
         return new FirstMatchingRuleDataFlowBuilder();
@@ -20,12 +19,12 @@ public class FirstMatchingRuleDataFlowBuilder<T,R> {
         return this;
     }
 
-    public FirstMatchingRuleDataFlowBuilder toRun(Function<T,R> process) {
+    public FirstMatchingRuleDataFlowBuilder toRun(Function<T, R> process) {
         conditionalExecutors.add(new ConditionalExecutor<>(testifShouldProcess, process));
         return this;
     }
 
-    public FirstMatchingRuleDataFlow<T,R> build() {
+    public FirstMatchingRuleDataFlow<T, R> build() {
         return new FirstMatchingRuleDataFlow<>(conditionalExecutors);
     }
 }
