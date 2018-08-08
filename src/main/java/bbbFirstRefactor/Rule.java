@@ -6,5 +6,5 @@ public interface Rule {
 
     Predicate<Data> testPredicate();
 
-    String apply();
+    String apply(Data data);
 }

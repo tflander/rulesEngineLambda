@@ -1,16 +1,17 @@
 package dddthirdRefactor;
 
+
+import java.util.function.Function;
 import java.util.function.Predicate;
-import java.util.function.Supplier;
 
 public class Rule {
 
     final public Predicate<Data> testPredicate;
-    final public Supplier<String> result;
+    final public Function<Data, String> execute;
 
-    public Rule(Predicate<Data> testPredicate, Supplier<String> result) {
+    public Rule(Predicate<Data> testPredicate, Function<Data, String> execute) {
         this.testPredicate = testPredicate;
-        this.result = result;
+        this.execute = execute;
     }
 
 }

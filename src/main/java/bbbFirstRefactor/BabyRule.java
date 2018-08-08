@@ -11,7 +11,7 @@ public class BabyRule implements Rule {
     }
 
     @Override
-    public String apply() {
+    public String apply(Data data) {
         return "Baby";
     }
 }

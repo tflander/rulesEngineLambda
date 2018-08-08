@@ -10,7 +10,7 @@ The code was developed and refactored in a single branch under different package
 
 ### package aaaObjectWay -- initial development
 
-Rules are implemented through a polymorphic object model.  The rules engine uses brute force logic to decide which rule to create and return for the data.
+Rules are implemented through a polymorphic object model.  The rules engine uses brute force logic to decide which rule to create and return to process the data and return a result.
 
 ### package bbbFirstRefactor
 

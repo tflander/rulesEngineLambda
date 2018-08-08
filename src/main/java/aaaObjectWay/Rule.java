@@ -1,5 +1,5 @@
 package aaaObjectWay;
 
 public interface Rule {
-    String apply();
+    String apply(Data data);
 }

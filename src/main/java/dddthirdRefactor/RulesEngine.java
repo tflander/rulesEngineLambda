@@ -8,9 +8,9 @@ public class RulesEngine {
     final private static List<Rule> rules = new ArrayList<>();
 
     static {
-        rules.add(RuleBuilder.create().withAgeBetween(0).and(2).called("Baby"));
-        rules.add(RuleBuilder.create().withAgeBetween(3).and(5).called("Toddler"));
-        rules.add(RuleBuilder.create().withAgeBetween(6).and(Integer.MAX_VALUE).called("Human"));
+        rules.add(new Rule(data -> isAgeInRange(data, 0, 2), RulesEngine::processDataForBaby));
+        rules.add(new Rule(data -> isAgeInRange(data, 3, 5), RulesEngine::processDataForToddler));
+        rules.add(new Rule(data -> isAgeInRange(data, 6, Integer.MAX_VALUE), RulesEngine::processDataForHuman));
     }
 
     public String resultFor(Data data) {
@@ -19,6 +19,26 @@ public class RulesEngine {
                 .filter(rule -> rule.testPredicate.test(data))
                 .findFirst()
                 .orElseThrow(RuntimeException::new)
-                .result.get();
+                .execute.apply(data);
+    }
+
+
+    private static String processDataForBaby(Data data) {
+        System.out.println("Processing data for baby...");
+        return "Baby";
+    }
+
+    private static String processDataForToddler(Data data) {
+        System.out.println("Processing data for toddler...");
+        return "Toddler";
+    }
+
+    private static String processDataForHuman(Data data) {
+        System.out.println("Processing data for human...");
+        return "Human";
+    }
+
+    private static boolean isAgeInRange(Data data, int lower, int upper) {
+        return lower <= data.getAge() && data.getAge() <= upper;
     }
 }
