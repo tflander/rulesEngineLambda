@@ -4,17 +4,17 @@ import model.Data;
 
 import java.util.List;
 
-public class DataProcessor {
+public class FirstMatchingRuleDataFlow<T> {
 
-    private final List<Rule> rules;
+    private final List<Rule<T>> rules;
 
-    public DataProcessor(List<Rule> rules) {
+    public FirstMatchingRuleDataFlow(List<Rule<T>> rules) {
         this.rules = rules;
     }
 
-    public String executeAndReturnResult(Data data) {
+    public T executeAndReturnResult(Data data) {
 
-        Rule ruleForData = rules.stream()
+        Rule<T> ruleForData = rules.stream()
                 .filter(rule -> rule.testPredicate.test(data))
                 .findFirst()
                 .orElseThrow(() -> new RuntimeException("No matching rule for data: " + data));
