@@ -6,7 +6,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class RulesTest {
 
-    final private DataProcessor dataProcessor = new DataProcessor();
+    final private DataProcessor dataProcessor = new DataProcessor(new BusinessLogic().getRules());
 
     @Test
     public void babyIsTwoOrYounger() {
