@@ -1,5 +1,6 @@
 package eeethirdRefactor;
 
+import eeethirdRefactor.executionFlow.FirstMatchingRuleDataFlowBuilder;
 import eeethirdRefactor.executionFlow.FirstMatchingRuleDataFlow;
 import model.Data;
 
@@ -15,7 +16,7 @@ public class BusinessLogic {
 
     public FirstMatchingRuleDataFlow<Data, String> getFlow() {
 
-        return FirstMatchingRuleDataFlow.Builder.<Data, String>create()
+        return FirstMatchingRuleDataFlowBuilder.<Data, String>create()
                 .addingCondition(isBaby).toRun(functions::processDataForBaby)
                 .addingCondition(isToddler).toRun(functions::processDataForToddler)
                 .addingCondition(isHuman).toRun(functions::processDataForHuman)

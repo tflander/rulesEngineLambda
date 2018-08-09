@@ -19,7 +19,7 @@ public class FirstMatchingRuleDataFlowTest {
         return (fruit -> "purchased " + fruit.name.toLowerCase() + " for " + useForFruit);
     }
 
-    private final FirstMatchingRuleDataFlow<Fruit, String> flow = FirstMatchingRuleDataFlow.Builder.<Fruit, String>create()
+    private final FirstMatchingRuleDataFlow<Fruit, String> flow = FirstMatchingRuleDataFlowBuilder.<Fruit, String>create()
             .addingCondition(testForFruitSalad).toRun(processFruitFor("fruit salad"))
             .addingCondition(testForPizza).toRun(processFruitFor("pizza"))
             .build();
